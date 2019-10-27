@@ -1,0 +1,57 @@
+﻿@model Aproxima.Models.Solicitacao
+
+@{
+    ViewData["Title"] = "Solicitação";
+}
+
+<h1>DETALHES</h1>
+
+<h3>Complete as informações abaixo para mais detalhes sobre o tema de interesse:</h3>
+
+<div class="row">
+        <form asp-action="Index">
+            
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+            <input type="hidden" asp-for="ClassificacaoId" />
+
+            <div class="form-group">
+                <label asp-for="Detalhamento" class="control-label"></label>
+                <textarea asp-for="Detalhamento" class="form-control"></textarea>
+                <span asp-validation-for="Detalhamento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="RendaMensal" class="control-label"></label>
+                <input asp-for="RendaMensal" class="form-control"/>
+                <span asp-validation-for="RendaMensal" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdultosMoramComVoce" class="control-label"></label>
+                <input asp-for="AdultosMoramComVoce" class="form-control" />
+                <span asp-validation-for="AdultosMoramComVoce" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdultosTemRenda" class="control-label"></label>
+                <input type="checkbox" asp-for="AdultosTemRenda" class="form-control" />
+                <span asp-validation-for="AdultosTemRenda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdultosRenda" class="control-label"></label>
+                <input asp-for="AdultosRenda" class="form-control" />
+                <span asp-validation-for="AdultosRenda" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="CONTINUAR" class="btn btn-primary" style="float:right;"/>
+            </div>
+        </form>
+</div>
+
+<div class="secVoltar">
+    <a asp-action="Index">
+        <i class="fas fa-arrow-circle-left"></i></a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

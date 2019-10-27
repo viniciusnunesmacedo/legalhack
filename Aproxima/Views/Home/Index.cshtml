@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Aproxima.Models.Classificacao>
+
+@{
+    ViewData["Title"] = "Principal";
+}
+
+<div class="fieldset-flex">
+    <figure>
+        <img src="/images/signup-img-1.png" alt="Personagem" class="imgTopo">
+    </figure>
+    <div class="fieldset-content">
+        <h1>Vamos começar!</h1>
+        <h3>Escolha o tema de interesse:</h3>
+
+        <div class="caixasOpcoes">
+
+            @foreach (var item in Model)
+            {
+
+                if (item.IdPai == 0)
+                {
+                    <a asp-action="" asp-route-id="@item.Id">
+                        <div class="boxOpt @item.Cor">
+                            <i class="fas @item.Icone"></i>
+                            <span>@item.Descricao</span>
+                        </div>
+                    </a>
+                }
+                else
+                {
+                    <a asp-action="" asp-route-id="@item.Id">
+                        <div class="boxOptSub">
+                            <div class="qdoIcon @item.Cor">
+                                <i class="fas @item.Icone"></i>
+                            </div>
+                            <p>
+                                @item.Descricao
+                            </p>
+                        </div>
+                    </a>
+                }
+            }
+        </div>
+
+
+    </div>
+</div>
+
+

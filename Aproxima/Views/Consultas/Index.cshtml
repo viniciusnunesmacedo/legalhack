@@ -1,0 +1,72 @@
+﻿@model Aproxima.ViewModel.SolicitacaoViewModel
+
+@{
+    ViewData["Title"] = "Solicitações";
+}
+
+<h1>Consulta de Protocolos</h1>
+
+<form asp-action="Index" class="buscaConsulta">
+    <input asp-for="Busca" class="form-control" />
+    <input type="submit" name="Pesquisar" value="Buscar" />
+</form>
+
+<div class="resultConsulta">
+
+    @foreach (var item in Model.Solicitacoes)
+    {
+
+    <div class="registroUm">
+
+        <div class="row">
+            <div class="titConsult"> @Html.DisplayNameFor(model => model.Solicitacoes.First().Detalhamento)</div>
+            <div class="detaConsult"> @Html.DisplayFor(modelItem => item.Detalhamento)</div>
+        </div>
+
+        <div class="row">
+            <div class="titConsult colunaEsquerda"> @Html.DisplayNameFor(model => model.Solicitacoes.First().RendaMensal)</div>
+            <div class="detaConsult colunaDireita"> @Html.DisplayFor(modelItem => item.RendaMensal)</div>
+        </div>
+
+        <div class="row">
+            <div class="titConsult colunaEsquerda"> @Html.DisplayNameFor(model => model.Solicitacoes.First().AdultosMoramComVoce)</div>
+            <div class="detaConsult colunaDireita"> @Html.DisplayFor(modelItem => item.AdultosMoramComVoce)</div>
+        </div>
+
+        <div class="row">
+            <div class="titConsult colunaEsquerda"> @Html.DisplayNameFor(model => model.Solicitacoes.First().AdultosTemRenda)</div>
+            <div class="detaConsult colunaDireita"> @Html.DisplayFor(modelItem => item.AdultosTemRenda)</div>
+        </div>
+
+        <div class="row">
+            <div class="titConsult colunaEsquerda"> @Html.DisplayNameFor(model => model.Solicitacoes.First().AdultosRenda)</div>
+            <div class="detaConsult colunaDireita"> @Html.DisplayFor(modelItem => item.AdultosRenda)</div>
+        </div>
+
+        <div class="row">
+            <div class="titConsult colunaEsquerda"> @Html.DisplayNameFor(model => model.Solicitacoes.First().Email)</div>
+            <div class="detaConsult colunaDireita"> @Html.DisplayFor(modelItem => item.Email)</div>
+        </div>
+
+        <div class="row">
+            <div class="titConsult colunaEsquerda"> @Html.DisplayNameFor(model => model.Solicitacoes.First().Telefone)</div>
+            <div class="detaConsult colunaDireita"> @Html.DisplayFor(modelItem => item.Telefone)</div>
+        </div>
+
+        <div class="row">
+            <div class="titConsult"> @Html.DisplayNameFor(model => model.Solicitacoes.First().Classificacao.Descricao)</div>
+            <div class="detaConsult"> @Html.DisplayFor(modelItem => item.ClassificacaoDescricao)</div>
+        </div>
+
+        <div class="row">
+            <div class="btnConsult colunaDireita">
+                <a asp-action="Edit" asp-route-id="@item.Id">
+                <i class="fas fa-edit"></i> Editar
+                </a>
+            </div>
+        </div>
+
+    </div>
+    }
+
+</div>

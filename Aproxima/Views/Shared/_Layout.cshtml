@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aproxima Soluções</title>
+
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="/fonts/material-icon/css/material-design-iconic-font.min.css">
+
+    <script src="https://kit.fontawesome.com/08274d60fd.js" crossorigin="anonymous"></script>
+
+    <!-- Main css -->
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+
+    <div class="main">
+        <div class="container">
+
+            <div class="secAcessibi">
+                <div class="ajuda">
+                    <i class="far fa-question-circle"></i>
+                    <span>Precisa de Ajuda?</span>
+                </div>
+
+                <div class="btsLeituras">
+                    <span>A+&nbsp;&nbsp;</span>
+                    <span style="font-size:0.8em;">A-&nbsp;&nbsp;</span>
+                    <i class="fas fa-low-vision"></i>
+                    <i class="fas fa-volume-up"></i>
+                    <i class="fas fa-universal-access"></i>
+                </div>
+
+            </div>
+
+            @RenderBody()
+
+            <div class="rodape">
+                <img src="/images/APROXIMA_Marca.png" alt="Aproxima">
+                <div class="certificados">
+                    <img src="/images/certifica01.png" alt="Certificado 01">
+                    <img src="/images/certifica02.png" alt="Certificado 02">
+                    <img src="/images/certifica03.png" alt="Certificado 03">
+                    <img src="/images/certifica04.png" alt="Certificado 04">
+                </div>
+            </div>
+        </div>
+
+        
+    </div>
+
+    <!-- JS -->
+    <script src="~/vendor/jquery/jquery.min.js"></script>
+    <script src="~/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+    <script src="~/vendor/jquery-steps/jquery.steps.min.js"></script>
+    <script src="~/js/main.js"></script>
+
+    @RenderSection("Scripts", required: false)
+
+</body>
+
+</html>

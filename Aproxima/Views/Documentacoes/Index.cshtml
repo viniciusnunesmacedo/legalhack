@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Aproxima.Models.Documentacao>
+
+@{
+    ViewData["Title"] = "Documentação Necessária";
+}
+
+    <div class="secDocs">
+        <h1>Documentos Necessários</h1>
+
+        <ul>
+            @foreach (var item in Model)
+            {
+            <li>
+                <div class="DocDesc">
+                    <i class="far fa-square"></i>
+                    <span>@Html.DisplayFor(modelItem => item.Descricao) </span>
+                </div>
+                <div class="DocUpload">
+                    <button class="btn-add">
+                        <i class="fas fa-upload"></i>Adicionar
+                    </button>
+                </div>
+            </li>
+            }
+        </ul>
+
+
+        <a asp-action="Resumo" asp-controller="solicitacoes" asp-route-id="@ViewBag.SolicitacaoId" class="btn-seguir">Continuar</a>
+
+    </div>

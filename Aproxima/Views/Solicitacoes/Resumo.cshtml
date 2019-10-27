@@ -1,0 +1,53 @@
+﻿@model Aproxima.Models.Solicitacao
+
+@{
+    ViewData["Title"] = "Resumo";
+}
+
+<h1>RESUMO</h1>
+
+<div class="numProtoco">
+    <label>@ViewBag.SolicitacaoId</label>
+    <p>Salve este número de protocolo em caso de necessidade futura. <br />
+    Para estas questões levantadas, você também encontrar mais respostas nas seguintes instituições:</p>
+    <ul>
+        <li><i class="fas fa-arrow-alt-circle-right"></i> PROCON</li>
+        <li><i class="fas fa-arrow-alt-circle-right"></i> Defensoria Pública</li>
+        <li><i class="fas fa-arrow-alt-circle-right"></i> Polícia Civil</li>
+    </ul>
+</div>
+
+<div class="row">
+
+    <p class="confirmaContato"><i class="far fa-square"></i> Desejo receber o contato de um especialista:</p>
+
+        <form asp-action="Resumo">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="form-group">
+                <label asp-for="Telefone"></label>
+                <input asp-for="Telefone"/>
+                <span asp-validation-for="Telefone" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Email"></label>
+                <input asp-for="Email">
+                <span asp-validation-for="Email" class="text-danger"></span>
+            </div>
+          
+            <div class="form-group">
+                <input type="submit" value="FINALIZAR" class="btn btn-primary" style="float:right;"/>
+            </div>
+        </form>
+</div>
+
+<div class="secVoltar">
+    <a asp-action="Index">
+        <i class="fas fa-arrow-circle-left"></i></a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
